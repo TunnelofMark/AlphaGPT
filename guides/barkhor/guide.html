@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>八廓街商城附近 · 好吃好玩</title>
+<style>
+@font-face {
+  font-family: "SerifSC";
+  src: url("fonts/NotoSerifSC-Regular.otf") format("opentype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "SerifSC";
+  src: url("fonts/NotoSerifSC-Bold.otf") format("opentype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "SansSC";
+  src: url("fonts/NotoSansSC-Regular.otf") format("opentype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "SansSC";
+  src: url("fonts/NotoSansSC-Medium.otf") format("opentype");
+  font-weight: 500;
+}
+
+:root {
+  --wine: #6b1c28;
+  --wine-deep: #3d1018;
+  --gold: #c9a35a;
+  --gold-soft: #e4d0a0;
+  --cream: #f4ead8;
+  --paper: #fbf6ec;
+  --ink: #2a1c16;
+  --muted: #6d5a4c;
+  --teal: #2f6a66;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page { size: A4; margin: 0; }
+@page :first { margin: 0; }
+
+html, body {
+  font-family: "SansSC", "WenQuanYi Micro Hei", sans-serif;
+  color: var(--ink);
+  background: #fff;
+  font-size: 11.5pt;
+  line-height: 1.45;
+}
+
+.page {
+  width: 210mm;
+  height: 297mm;
+  page-break-after: always;
+  position: relative;
+  overflow: hidden;
+}
+.page:last-child { page-break-after: auto; }
+
+/* ========== COVER ========== */
+.cover {
+  background: #1a0d0c url("assets/cover-lhasa-dusk.jpg") center 42% / cover no-repeat;
+}
+.cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(26,10,10,.18) 0%, rgba(26,10,10,.12) 38%, rgba(26,10,10,.72) 100%);
+}
+.cover-frame {
+  position: absolute;
+  inset: 11mm;
+  border: 0.7pt solid rgba(201,163,90,.75);
+  z-index: 2;
+  pointer-events: none;
+}
+.cover-inner {
+  position: absolute;
+  inset: 13mm;
+  border: 0.25pt solid rgba(228,208,160,.35);
+  z-index: 2;
+  pointer-events: none;
+}
+.cover-top {
+  position: absolute;
+  top: 18mm;
+  left: 0; right: 0;
+  z-index: 3;
+  text-align: center;
+  color: var(--gold-soft);
+  letter-spacing: .42em;
+  font-size: 8.5pt;
+  font-weight: 500;
+}
+.cover-body {
+  position: absolute;
+  left: 18mm; right: 18mm;
+  bottom: 22mm;
+  z-index: 3;
+  color: #f7efdf;
+}
+.cover-kicker {
+  font-size: 9pt;
+  letter-spacing: .38em;
+  color: var(--gold);
+  margin-bottom: 6mm;
+}
+.cover h1 {
+  font-family: "SerifSC", serif;
+  font-weight: 700;
+  font-size: 46pt;
+  letter-spacing: .22em;
+  line-height: 1.05;
+  margin-bottom: 4mm;
+}
+.cover h2 {
+  font-family: "SerifSC", serif;
+  font-weight: 400;
+  font-size: 16pt;
+  letter-spacing: .18em;
+  color: var(--gold-soft);
+  margin-bottom: 8mm;
+}
+.cover-rule {
+  width: 28mm;
+  height: 0.6pt;
+  background: var(--gold);
+  margin-bottom: 7mm;
+}
+.cover-meta {
+  display: flex;
+  gap: 8mm;
+  font-size: 9pt;
+  letter-spacing: .08em;
+  color: #eadfcb;
+}
+.cover-meta span { opacity: .95; }
+.cover-meta b {
+  font-weight: 500;
+  color: var(--gold);
+  display: block;
+  font-size: 8pt;
+  letter-spacing: .2em;
+  margin-bottom: 1.2mm;
+}
+
+/* ========== INNER PAGES ========== */
+.inner {
+  background: var(--paper);
+  padding: 13mm 13mm 12mm;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 0.6pt solid var(--gold);
+  padding-bottom: 3.5mm;
+  margin-bottom: 6mm;
+}
+.header .sec {
+  font-family: "SerifSC", serif;
+  font-weight: 700;
+  font-size: 22pt;
+  letter-spacing: .18em;
+  color: var(--wine);
+}
+.header .en {
+  font-size: 8pt;
+  letter-spacing: .32em;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 1.5mm;
+}
+.header .side {
+  text-align: right;
+  font-size: 8.5pt;
+  color: var(--muted);
+  letter-spacing: .06em;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5.5mm;
+}
+.card {
+  background: #fff;
+  border: 0.4pt solid #ead9bc;
+  overflow: hidden;
+}
+.card img {
+  width: 100%;
+  height: 62mm;
+  object-fit: cover;
+  display: block;
+}
+.card .body { padding: 4.2mm 4.5mm 4.8mm; }
+.tag {
+  display: inline-block;
+  font-size: 7.5pt;
+  letter-spacing: .22em;
+  color: var(--wine);
+  border: 0.5pt solid var(--gold);
+  padding: 0.6mm 2.2mm;
+  margin-bottom: 2.2mm;
+}
+.card h3 {
+  font-family: "SerifSC", serif;
+  font-weight: 700;
+  font-size: 13.5pt;
+  letter-spacing: .08em;
+  color: var(--wine-deep);
+  margin-bottom: 1.6mm;
+}
+.card p {
+  font-size: 9pt;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.card .meta {
+  margin-top: 2.4mm;
+  font-size: 8pt;
+  color: var(--teal);
+  letter-spacing: .04em;
+}
+
+/* Route page */
+.hero-strip {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 5mm;
+  margin-bottom: 6mm;
+}
+.hero-photo {
+  height: 78mm;
+  background: #222 url("assets/wiki-barkhor-street.jpg") center / cover no-repeat;
+  position: relative;
+}
+.hero-photo .cap {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 8mm 5mm 4mm;
+  background: linear-gradient(180deg, transparent, rgba(30,12,12,.78));
+  color: #f6eedf;
+  font-family: "SerifSC", serif;
+  font-size: 13pt;
+  letter-spacing: .12em;
+}
+.route-box {
+  background: var(--wine);
+  color: #f6eedf;
+  padding: 6mm 6mm 5.5mm;
+}
+.route-box .en {
+  color: var(--gold);
+  letter-spacing: .28em;
+  font-size: 7.5pt;
+  margin-bottom: 2.5mm;
+}
+.route-box h3 {
+  font-family: "SerifSC", serif;
+  font-size: 16pt;
+  letter-spacing: .14em;
+  margin-bottom: 5mm;
+}
+.step {
+  display: grid;
+  grid-template-columns: 9mm 1fr;
+  gap: 2.5mm;
+  margin-bottom: 3.4mm;
+}
+.num {
+  font-family: "SerifSC", serif;
+  color: var(--gold);
+  font-size: 12pt;
+}
+.step b {
+  display: block;
+  font-weight: 500;
+  font-size: 10pt;
+  letter-spacing: .06em;
+}
+.step span {
+  display: block;
+  font-size: 8.2pt;
+  color: #e4d0b4;
+  margin-top: .6mm;
+}
+
+.tips {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 4mm;
+}
+.tip {
+  background: #fff;
+  border-top: 2.2pt solid var(--gold);
+  padding: 4mm 3.6mm 4.2mm;
+}
+.tip .k {
+  font-size: 7.5pt;
+  letter-spacing: .2em;
+  color: var(--gold);
+  margin-bottom: 1.8mm;
+}
+.tip h4 {
+  font-family: "SerifSC", serif;
+  font-size: 11pt;
+  color: var(--wine);
+  margin-bottom: 1.6mm;
+}
+.tip p { font-size: 8.3pt; color: var(--muted); line-height: 1.5; }
+
+.footer {
+  position: absolute;
+  left: 13mm; right: 13mm; bottom: 7mm;
+  display: flex;
+  justify-content: space-between;
+  font-size: 7.5pt;
+  letter-spacing: .16em;
+  color: #a08a74;
+}
+.footer .pg { color: var(--wine); }
+
+.note-line {
+  margin: 0 0 5.5mm;
+  font-size: 9pt;
+  color: var(--muted);
+}
+.note-line em {
+  font-style: normal;
+  color: var(--wine);
+  font-weight: 500;
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 COVER -->
+<section class="page cover">
+  <div class="cover-frame"></div>
+  <div class="cover-inner"></div>
+  <div class="cover-top">LHASA · CHENGGUAN · BARKHOR</div>
+  <div class="cover-body">
+    <div class="cover-kicker">从亚宾馆出发</div>
+    <h1>八廓街</h1>
+    <h2>商城附近 · 好吃好玩</h2>
+    <div class="cover-rule"></div>
+    <div class="cover-meta">
+      <div><b>起点</b><span>拉萨亚宾馆 · 北京东路 127 号</span></div>
+      <div><b>终点</b><span>八廓街商城 · 大昭寺广场</span></div>
+      <div><b>步行</b><span>约 8 分钟 · 500–800 米</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 PLAY -->
+<section class="page inner">
+  <div class="header">
+    <div>
+      <div class="en">TO DO</div>
+      <div class="sec">好玩</div>
+    </div>
+    <div class="side">商城周边 · 步行可达</div>
+  </div>
+  <p class="note-line">出商城即是大昭寺广场。建议<em>顺时针</em>绕行，把逛街和转经叠在一起走。</p>
+  <div class="grid-2">
+    <article class="card">
+      <img src="assets/play-jokhang.jpg" alt="大昭寺">
+      <div class="body">
+        <div class="tag">圣地</div>
+        <h3>大昭寺</h3>
+        <p>拉萨的心。看金顶、壁画，金顶平台可远眺布达拉宫。</p>
+        <div class="meta">票 85 元 · 建议提前一天预约 · 游 2 小时</div>
+      </div>
+    </article>
+    <article class="card">
+      <img src="assets/play-barkhor.jpg" alt="八廓街">
+      <div class="body">
+        <div class="tag">转经</div>
+        <h3>八廓街</h3>
+        <p>绕寺一圈约 30–40 分钟。清晨与黄昏，烟火气最足。</p>
+        <div class="meta">免费 · 进街区带身份证过安检</div>
+      </div>
+    </article>
+    <article class="card">
+      <img src="assets/play-wheels.jpg" alt="转经筒">
+      <div class="body">
+        <div class="tag">仪式</div>
+        <h3>转经筒</h3>
+        <p>右手顺时针轻推。沿途桑烟、经声，比拍照更值得停一下。</p>
+        <div class="meta">请勿逆行 · 拍摄朝拜请先征得同意</div>
+      </div>
+    </article>
+    <article class="card">
+      <img src="assets/play-mall.jpg" alt="八廓街商城">
+      <div class="body">
+        <div class="tag">逛街</div>
+        <h3>八廓街商城</h3>
+        <p>唐卡、藏香、松石珊瑚。琅赛商城就在广场旁，记得议价。</p>
+        <div class="meta">店铺大约 9:00–20:00 · 小店可淘手作</div>
+      </div>
+    </article>
+  </div>
+  <div class="footer">
+    <span>BARKHOR POCKET GUIDE</span>
+    <span class="pg">02 / 04</span>
+  </div>
+</section>
+
+<!-- PAGE 3 FOOD -->
+<section class="page inner">
+  <div class="header">
+    <div>
+      <div class="en">TO EAT</div>
+      <div class="sec">好吃</div>
+    </div>
+    <div class="side">四家就够 · 都在商城附近</div>
+  </div>
+  <p class="note-line">藏餐偏油、分量大，<em>两人点两三个菜</em>足够。先喝茶，再慢慢吃。</p>
+  <div class="grid-2">
+    <article class="card">
+      <img src="assets/food-yak-pancake.jpg" alt="安多诺增">
+      <div class="body">
+        <div class="tag">正餐 · 最近</div>
+        <h3>安多诺增藏餐</h3>
+        <p>就在八廓商城对面。招牌安多盖饼牦牛肉，酥油烤蘑菇也稳。</p>
+        <div class="meta">八朗学五巷 3 号 · 人均 85–115 · 饭点常排队</div>
+      </div>
+    </article>
+    <article class="card">
+      <img src="assets/food-yogurt-lamb.jpg" alt="玛吉阿米">
+      <div class="body">
+        <div class="tag">氛围</div>
+        <h3>玛吉阿米</h3>
+        <p>东南角黄楼。露台看转经人潮。点土豆煎羊排、秘制酸奶。</p>
+        <div class="meta">东孜苏路 40 号 · 建议预约靠窗</div>
+      </div>
+    </article>
+    <article class="card">
+      <img src="assets/food-sweet-tea.jpg" alt="甜茶馆">
+      <div class="body">
+        <div class="tag">烟火</div>
+        <h3>老光明岗琼</h3>
+        <p>本地人的甜茶馆。拿杯坐下，桌上放零钱，配一碗藏面。</p>
+        <div class="meta">藏医院路 · 人均 15–30 · 嘈杂但地道</div>
+      </div>
+    </article>
+    <article class="card">
+      <img src="assets/food-milk-tea.jpg" alt="酸奶奶茶">
+      <div class="body">
+        <div class="tag">小憩</div>
+        <h3>古树酸奶 / 阿刁</h3>
+        <p>街心大树下酸奶洒白糖。渴了点阿刁「扎西德勒」边走边喝。</p>
+        <div class="meta">八廓街内 · 随走随吃 · 好拍照</div>
+      </div>
+    </article>
+  </div>
+  <div class="footer">
+    <span>BARKHOR POCKET GUIDE</span>
+    <span class="pg">03 / 04</span>
+  </div>
+</section>
+
+<!-- PAGE 4 ROUTE -->
+<section class="page inner">
+  <div class="header">
+    <div>
+      <div class="en">HALF DAY</div>
+      <div class="sec">怎么走</div>
+    </div>
+    <div class="side">一个下午刚刚好</div>
+  </div>
+
+  <div class="hero-strip">
+    <div class="hero-photo">
+      <div class="cap">八廓街 · 从金顶望向老城</div>
+    </div>
+    <div class="route-box">
+      <div class="en">WALKING ORDER</div>
+      <h3>半日路线</h3>
+      <div class="step"><div class="num">01</div><div><b>亚宾馆出发</b><span>沿北京东路往南，约 8 分钟到商城</span></div></div>
+      <div class="step"><div class="num">02</div><div><b>逛八廓街商城</b><span>先看一眼广场与大昭寺金顶</span></div></div>
+      <div class="step"><div class="num">03</div><div><b>进寺或转经</b><span>有预约就进大昭寺，没有就顺时针走一圈</span></div></div>
+      <div class="step"><div class="num">04</div><div><b>甜茶歇脚</b><span>光明岗琼，或古树下吃酸奶</span></div></div>
+      <div class="step"><div class="num">05</div><div><b>晚饭</b><span>近：安多诺增　远一点：玛吉阿米看日落</span></div></div>
+      <div class="step"><div class="num">06</div><div><b>夜逛回住</b><span>小店淘香与松石，原路回亚宾馆</span></div></div>
+    </div>
+  </div>
+
+  <div class="tips">
+    <div class="tip">
+      <div class="k">01</div>
+      <h4>身份证</h4>
+      <p>进入八廓街区需过安检，证件随身带。</p>
+    </div>
+    <div class="tip">
+      <div class="k">02</div>
+      <h4>顺时针</h4>
+      <p>转经、推筒都朝一个方向，不要逆行。</p>
+    </div>
+    <div class="tip">
+      <div class="k">03</div>
+      <h4>慢慢走</h4>
+      <p>海拔约 3650 米，少跑少酒，渴了就喝茶。</p>
+    </div>
+    <div class="tip">
+      <div class="k">04</div>
+      <h4>尊重</h4>
+      <p>拍磕长头与僧人，先问再拍。</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>BARKHOR POCKET GUIDE · 仅供朋友出行参考</span>
+    <span class="pg">04 / 04</span>
+  </div>
+</section>
+
+</body>
+</html>
