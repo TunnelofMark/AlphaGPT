@@ -14,13 +14,18 @@ torch==2.14.0+cpu
 aiohttp==3.14.3
 asyncpg==0.31.0
 sqlalchemy==2.0.52
+# Synchronous Postgres driver used by the dashboard's SQLAlchemy engine / pandas.read_sql
+psycopg2-binary==2.9.12
 loguru==0.7.3
 tqdm==4.70.0
 python-dotenv==1.2.3
 
-# Solana execution layer
-solana==0.40.3
-solders==0.29.0
+# Solana execution layer.
+# solana is pinned to a release that still exposes the synchronous
+# solana.rpc.api.Client used by dashboard/data_service.py (dropped in 0.40.x),
+# paired with the solders build it is compatible with.
+solana==0.36.10
+solders==0.27.1
 base58==2.1.1
 
 # Dashboard
