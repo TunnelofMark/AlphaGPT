@@ -1,0 +1,28 @@
+# AlphaGPT Python dependencies
+# torch is pinned to the CPU build; the Cloud Agent VM has no GPU
+# (model_core/config.py falls back to CPU when CUDA is unavailable).
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+# Core numerics / data
+numpy==2.4.4
+pandas==3.0.5
+
+# Deep-learning model core
+torch==2.14.0+cpu
+
+# Data pipeline (async ingestion + Postgres)
+aiohttp==3.14.3
+asyncpg==0.31.0
+sqlalchemy==2.0.52
+loguru==0.7.3
+tqdm==4.70.0
+python-dotenv==1.2.3
+
+# Solana execution layer
+solana==0.40.3
+solders==0.29.0
+base58==2.1.1
+
+# Dashboard
+streamlit==1.63.0
+plotly==7.0.0
